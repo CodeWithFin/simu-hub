@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #050505;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  *::selection {
+    background-color: #DCCEB2;
+    color: #050505;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #DCCEB2;
+}
+
+/* Custom Form Inputs */
+.custom-input {
+  @apply bg-transparent border-b border-white/20 transition-colors;
+}
+
+.custom-input:focus {
+  outline: none;
+  border-bottom-color: #DCCEB2;
+}
+
+/* Animations */
+@keyframes slowZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+.cinematic-bg {
+  animation: slowZoom 20s infinite alternate;
+}

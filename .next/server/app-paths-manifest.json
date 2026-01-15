@@ -1,0 +1,8 @@
+{
+  "/page": "app/page.js",
+  "/checkout/page": "app/checkout/page.js",
+  "/products/page": "app/products/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/api/general-feedback/route": "app/api/general-feedback/route.js",
+  "/feedback/page": "app/feedback/page.js"
+}
