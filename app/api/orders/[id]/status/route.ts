@@ -81,7 +81,7 @@ Contact: ${process.env.SHOP_PHONE || 'N/A'}`
     
     // Automatically send feedback request when order is completed
     if (status === 'completed') {
-      const feedbackLink = `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/feedback`
+      const feedbackLink = 'https://simu-hub.vercel.app/feedback'
       const message = `Thank you for your purchase from ${process.env.SHOP_NAME || 'Simu Hub'}!
 How was your experience with ${product.brand} ${product.model}?
 Share your feedback: ${feedbackLink}
