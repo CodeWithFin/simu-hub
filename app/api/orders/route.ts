@@ -34,6 +34,7 @@ export async function POST(request: NextRequest) {
       .single()
     
     if (!customer) {
+      // Create new customer
       const { data: newCustomer, error: customerError } = await supabase
         .from('customers')
         .insert({ name: customerName, phone, email })
@@ -48,6 +49,23 @@ export async function POST(request: NextRequest) {
         )
       }
       customer = newCustomer
+    } else {
+      // Update existing customer's name and email (they might have changed)
+      const { data: updatedCustomer, error: updateError } = await supabase
+        .from('customers')
+        .update({ 
+          name: customerName, 
+          email: email || null 
+        })
+        .eq('id', customer.id)
+        .select()
+        .single()
+      
+      if (updateError) {
+        console.error('Failed to update customer:', updateError)
+      } else {
+        customer = updatedCustomer
+      }
     }
     
     // Ensure customer exists
